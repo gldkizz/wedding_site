@@ -1,0 +1,774 @@
+@import 'normalize';
+@import 'var';
+@import 'default';
+
+body{
+    position: relative;
+    &::before{
+        content: '';
+        animation: scroll 100s linear infinite;
+        background: url('../img/heart.webp') center/contain;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        z-index: -1;
+        position: absolute;
+        background-position: top;
+        perspective: 1000px;
+        perspective-origin: 50% 50%;
+    }
+}
+
+.container{
+    padding: 0 20px;
+}
+
+.header{
+    margin-bottom: 50px;
+    &__inner{
+        text-align: center;
+        background: url('../img/top-bg.avif') center/cover no-repeat;
+        background-position: top;
+        width: 100%;
+    }
+    &__title{
+        font-family: $headTopFonts;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color:#4D4D4D;
+        font-size: 72px;
+        margin-top: 10px;
+        animation: showMainHeader 1s linear ;
+
+    }
+    &__img{
+        margin: 0 auto;
+        max-width: 640px;
+        width: 100%;
+        min-width: 266px;
+        padding: 0 20px;
+        animation: showImg 2s ease;
+    }
+    &__subtitle{
+        font-family: $headFonts;
+        font-style: italic;
+        font-weight: normal;
+        color:#4D4D4D;
+        position: relative;
+        margin-top: 40px;
+        font-size: 24px;
+        scale: (1.2);
+        &::after{
+            content: '';
+            height: 1px;
+            min-width: 280px;
+            background-color: #4D4D4D;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: -10px;
+            scale: 1;
+            animation: movePlanLeft 2s ease;
+        }
+        &::before{
+            content: '';
+            height: 1px;
+            min-width: 280px;
+            background-color: #4D4D4D;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: -10px;
+            scale: 1;
+            animation: movePlanLeft 2s ease;
+        }
+    }
+
+    &__stroke{
+        margin-top: 40px;
+        font-family: $headFonts;
+        font-style: italic;
+        color:#4D4D4D;
+        border: 1px solid #4D4D4D;
+        padding: 2px 10px;
+        display: inline-block;
+        &-text{
+            border: none;
+            font-weight: normal;
+            font-size: 24px;
+        }
+    }
+}
+
+@keyframes scaleData {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.2);
+    }
+}
+
+@keyframes showImg {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes showMainHeader {
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1; 
+    }
+}
+
+@keyframes showBlock {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+@keyframes movePlanLeft {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes movePlanRight {
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.left__move{
+    animation: movePlanLeft 2s ease forwards;
+}
+
+.right__move{
+    animation: movePlanRight 2s ease ;
+}
+@keyframes animTitle {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.header__view {
+    animation: animTitle 2s ease forwards;
+}
+.section__view{
+    animation: showBlock 3s ease;
+    animation-fill-mode: forwards;
+}
+
+.guest{
+    opacity: 0;
+    margin-bottom: 50px;
+    &__top-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 30px 0;
+    }
+    &__top-title h2 {
+        font-family: $titleFonts;
+        font-weight: 400;
+        font-size: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        color: #4D4D4D;
+    }
+    &__top-text p{
+        font-family: $textFonts;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        line-height: 23px;
+    }  
+    &__top-undertext p{
+        font-family: $titleFonts;
+        font-weight: 700;
+        font-size: 14px;
+        display: block;
+        margin: 0 auto;
+    }
+    &__waiting-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        font-family: $textFonts;
+        font-size: 14px;
+        position: relative;
+        gap: 5px;
+        margin-bottom: 30px;
+        &::after{
+            content: '';
+            height: 1px;
+            min-width: 280px;
+            background-color: #C5C5C5;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: -10px;
+            scale: 1.2;
+        }
+        &::before{
+            content: '';
+            height: 1px;
+            min-width: 280px;
+            background-color: #C5C5C5;
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: -10px;
+            scale: 1.2;
+        }
+    }
+    &__map{
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        height: 100px;
+    }
+}
+
+.plan{
+    opacity: 0;
+    margin-bottom: 50px;
+    &__title{
+        font-family: $titleFonts;
+        line-height: 31px;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 31px;
+        letter-spacing: 1px;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        color: #4D4D4D;
+        &-item{
+            border: 1px solid #4D4D4D;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 5px 25px;
+            width: 190px;
+            text-align: center;
+        }
+        &-time{
+            font-size: 14px;
+            letter-spacing: 1px;
+
+        }
+        &-text{
+            font-family: $textFonts;
+            font-size: 16px;
+            font-weight: 400;
+
+        }
+    }
+}
+
+.dress {
+    opacity: 0;
+    &__title{
+        color:#4D4D4D;
+        font-family: $titleFonts;
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__list{
+        padding: 0 20px 20px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    &__text{
+        font-family: $textFonts;
+        font-size: 14px;
+        color:#4D4D4D;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: -1px;
+        text-align: center;
+        &.margin {
+            margin-top: 30px;
+        }
+    }
+    &__img{
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+.timer{
+    opacity: 0;
+    padding: 250px 0;
+    &__title{
+        color:#4D4D4D;
+        font-weight: 400;
+        text-align: center;
+        font-family: $titleFonts;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    &__list{
+        color:#4D4D4D;
+        display: flex;
+        gap: 11px;
+        justify-content: center;
+        text-align: center;
+    }
+    &__element{
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            background-color:#4D4D4D;
+            display: block;
+            height: 42px;
+            width: 1px;
+            right: -6px;
+            top: 0;
+        }
+    }
+    &__days-text{
+        color:#4D4D4D;
+        font-family: $titleFonts;
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    &__days-undertext{
+        font-family: $titleFonts;
+        font-size: 14px;
+    }
+    &__hours-text{
+        font-family: $titleFonts;
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    &__hours-undertext{
+        font-family: $titleFonts;
+        font-size: 14px;
+    }
+    &__min-text{
+        font-family: $titleFonts;
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    &__min-undertext{
+        font-family: $titleFonts;
+        font-size: 14px;
+    }
+    &__sec-text{
+        font-family: $titleFonts;
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    &__sec-undertext{
+        font-family: $titleFonts;
+        font-size: 14px;
+    }
+}
+
+@keyframes scroll {
+    100% {
+      background-position: 0px -400%;
+    }
+}
+
+@media(min-width: 480px){
+    .header{
+        margin-bottom: 70px;
+        &__title{
+            font-size: 94px;
+        }
+        &__img{
+            width: 80%; 
+        }
+        &__subtitle{
+            font-size: 36px;
+        }
+        &__stroke{
+            padding: 5px 15px;
+            &-text{
+                font-size: 32px;
+            }
+        }
+        
+    }
+
+    .guest{
+        margin-bottom: 70px;
+        &__waiting-list{
+            margin-bottom: 40px;
+            &::after{
+                top: -15px;
+            }
+            &::before{
+                bottom: -15px;
+            }
+        }
+        &__top-list{
+            margin-bottom: 40px;
+        }
+        &__top-title h2{
+            font-size: 40px;
+        }
+        &__top-text p{
+            font-size: 24px;
+            line-height: 30px;
+        }
+        &__top-undertext p{
+            font-size: 16px;
+        }
+        &__waiting-list{
+            font-size: 24px;
+        }
+        &__map{
+            height: 150px;
+        }
+    }
+    .plan{
+        margin-bottom: 70px;
+        &__title{
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        &__list{
+            &-item{
+                width: 200px;
+            }
+            &-time{
+                font-size: 18px;
+            }
+            &-text{
+                font-size: 20px;
+            }
+        }
+    }
+    
+    .dress{
+        &__title{
+            font-size: 40px;
+
+        }
+        &__text{
+            font-size: 24px;
+        }
+    }
+
+    .timer{
+        &__title{
+            font-size: 40px;
+        }
+        &__element{
+            &::after{
+                height: 59px;
+            }
+        }
+        &__days-text{
+            font-size: 28px;
+        }
+        &__days-undertext{
+            font-size: 22px;
+        }
+        &__hours-text{
+            font-size: 28px;
+        }
+        &__hours-undertext{
+            font-size: 22px;
+        }
+        &__min-text{
+            font-size: 28px;
+        }
+        &__min-undertext{
+            font-size: 22px;
+        }
+        &__sec-text{
+            font-size: 28px;
+        }
+        &__sec-undertext{
+            font-size: 22px;
+        }
+    }
+}
+
+@media(min-width: 768px){
+    .header{
+        margin-bottom: 90px;
+        &__title{
+            font-size: 135px;
+        }
+        &__img{
+            width: 80%;
+            margin: 0 auto;
+        }
+        &__subtitle{
+            font-size: 48px;
+        }
+        &__stroke{
+            padding: 10px 20px;
+            &-text{
+                font-size: 42px;
+            }
+        }
+        
+    }
+
+    .guest{
+        margin-bottom: 90px;
+        &__waiting-list{
+            margin-bottom: 50px;
+            &::after{
+                top: -20px;
+            }
+            &::before{
+                bottom: -20px;
+            }
+        }
+        &__top-list{
+            margin-bottom: 50px;
+        }
+        &__top-title h2{
+            font-size: 48px;
+        }
+        &__top-text p{
+            font-size: 30px;
+            line-height: 35px;
+        }
+        &__top-undertext p{
+            font-size: 20px;
+        }
+        &__waiting-list{
+            font-size: 32px;
+        }
+        &__map{
+            height: 250px;
+        }
+    }
+    .plan{
+        margin-bottom: 90px;
+        &__title{
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+        &__list{
+            gap: 20px;
+            &-item{
+                width: 230px;
+            }
+            &-time{
+                font-size: 22px;
+            }
+            &-text{
+                font-size: 24px;
+            }
+        }
+    }
+    
+    .dress{
+        &__title{
+            font-size: 48px;
+
+        }
+        &__text{
+            font-size: 30px;
+        }
+    }
+
+    .timer{
+        &__title{
+            font-size: 36px;
+        }
+        &__element{
+            &::after{
+                height: 59px;
+            }
+        }
+        &__days-text{
+            font-size: 28px;
+        }
+        &__days-undertext{
+            font-size: 22px;
+        }
+        &__hours-text{
+            font-size: 28px;
+        }
+        &__hours-undertext{
+            font-size: 22px;
+        }
+        &__min-text{
+            font-size: 28px;
+        }
+        &__min-undertext{
+            font-size: 22px;
+        }
+        &__sec-text{
+            font-size: 28px;
+        }
+        &__sec-undertext{
+            font-size: 22px;
+        }
+    }
+}
+@media(min-width:1024px){
+    .header{
+        margin-bottom: 90px;
+        &__title{
+            font-size: 155px;
+        }
+        &__img{
+            width: 80%;
+            margin: 0 auto;
+        }
+        &__subtitle{
+            font-size: 64px;
+        }
+        &__stroke{
+            padding: 15px 25px;
+            &-text{
+                font-size: 48px;
+            }
+        }
+        
+    }
+
+    .guest{
+        margin-bottom: 90px;
+        &__waiting-list{
+            margin-bottom: 50px;
+            &::after{
+                top: -20px;
+            }
+            &::before{
+                bottom: -20px;
+            }
+        }
+        &__top-list{
+            margin-bottom: 50px;
+        }
+        &__top-title h2{
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        &__top-text p{
+            font-size: 36px;
+            line-height: 40px;
+        }
+        &__top-undertext p{
+            font-size: 26px;
+        }
+        &__waiting-list{
+            font-size: 38px;
+        }
+        &__map{
+            height: 300px;
+        }
+    }
+    .plan{
+        margin-bottom: 90px;
+        &__title{
+            font-size: 60px;
+            margin-bottom: 40px;
+        }
+        &__list{
+            gap: 20px;
+            &-item{
+                width: 300px;
+            }
+            &-time{
+                font-size: 26px;
+            }
+            &-text{
+                font-size: 28px;
+            }
+        }
+    }
+    
+    .dress{
+        &__title{
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        &__list{
+            gap: 20px;
+        }
+        &__text{
+            font-size: 36px;
+        }
+    }
+
+    .timer{
+        &__title{
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+        &__element{
+            &::after{
+                height: 73px;
+            }
+        }
+        &__days-text{
+            font-size: 34px;
+        }
+        &__days-undertext{
+            font-size: 28px;
+        }
+        &__hours-text{
+            font-size: 34px;
+        }
+        &__hours-undertext{
+            font-size: 28px;
+        }
+        &__min-text{
+            font-size: 34px;
+        }
+        &__min-undertext{
+            font-size: 28px;
+        }
+        &__sec-text{
+            font-size: 34px;
+        }
+        &__sec-undertext{
+            font-size: 28px;
+        }
+    }
+}

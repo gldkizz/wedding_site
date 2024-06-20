@@ -1,0 +1,126 @@
+html {
+    position: relative; /* если на сайте анимации, то не позволяет вываливаться за границы */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    position: relative; /* если на сайте анимации, то не позволяет вываливаться за границы */
+    overflow-x: hidden; /* если на сайте анимации, то не позволяет вываливаться за границы */
+    min-width: 320px; /* минимальной ширина мобильной версии */
+    min-height: 100vh; /* минимальной высота мобильной версии */
+    font-family: Raleway, sans-serif;
+    -webkit-font-smoothing: antialiased; /* свойства для оптимизации шрифтов */
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    font-size: 18px; /* основной размер шрифта */
+    color: #1A1A1A; /* основной цвет шрифта */
+    background-color: #F9F3E7; /* основной цвет сайта */ 
+  }
+  
+  
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  svg {
+    max-height: 100%;
+  }
+  
+  
+  button {
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent; /* прозрачный */
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  /*
+  Доступно скрываю элементы
+  */
+  
+  .visually-hidden {
+    position: fixed;
+    transform: scale(0);
+  }
+
+  
+  /*
+  Пример контейнера
+  
+  Если контейнер 1180px по макету,
+  то для max-width прибавляем паддинги 30px*2, 
+  в итоге 1240px
+  Чтобы контент не прижимался к краям экрана
+  */
+  
+//   .container {
+//     --container-width: 1180px;
+//     --container-padding: 30px;
+//     max-width: calc(var(--container-width) + var(--container-padding) * 2);
+//     padding: 0 var(--container-padding);
+//     margin: 0 auto;
+//   }
+  
+  /* | 30 |             1180               | 30 | */
+
+
+//   @media (max-width:1080px){
+//     .container{
+//       --container-padding: 66px;
+//     }
+//   }
+
+//   @media (max-width: 900px){
+//     .container{
+//       --container-padding: 44px;
+//     }
+//   }
+
+//   @media(max-width: 660px){
+//     .container{
+//       --container-padding: 20px;
+//     }
+//   }
+
+//   @media(max-width: 480){
+//     .container{
+//       --container-padding: 16px;
+//     }
+//   }
